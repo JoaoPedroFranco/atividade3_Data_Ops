@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -18,7 +18,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            cd ~/espm-dataops-github-actions
+            cd ./atividade3_Data_Ops
             git pull
             sudo docker build -t flask-api .
             sudo docker stop flask-api || true
